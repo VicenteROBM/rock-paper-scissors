@@ -9,7 +9,16 @@
 <body>
     <script>
         // GET INPUT FROM USER//
-        function getUserChoice(){}
+        let UserChoice = prompt("Rock, paper, scissor what do you chose?")
+        function getUserChoice(){
+            UserChoice = UserChoice.toLowerCase()
+            if(UserChoice != "rock" && UserChoice != "paper" && UserChoice != "scissors"){
+                console.log("This is not a valid choice reload and try again")
+            }else{
+                return UserChoice
+            }
+        }
+        console.log(getUserChoice())
         //GENERATE COMPUTER IMPUT//
         function getComputerChoice(){
             let ComputerChoice = Math.floor(Math.random()*3)
@@ -21,10 +30,31 @@
                 ComputerChoice = "scissors"
             }
             return(ComputerChoice)
-
         }
         console.log(getComputerChoice())
         //COMPARE INPUTS//
+        function PlayRound(getUserChoice,getComputerChoice){
+            if(getUserChoice == "rock" && getComputerChoice =="paper"){
+                console.log("Oh no, you lost!")
+            }
+            else if(getUserChoice == "rock" && getComputerChoice =="scissors"){
+                console.log("You did it, you won!")
+            }
+            else if(getUserChoice == "paper" && getComputerChoice =="scissors"){
+                console.log("Oh no, you lost!")
+            }
+            else if(getUserChoice == "paper" && getComputerChoice =="rock"){
+                console.log("You did it, you won!")
+            }
+            else if(getUserChoice == "scissors" && getComputerChoice =="rock"){
+                console.log("Oh no, you lost!")
+            }
+            else if(getUserChoice == "scissors" && getComputerChoice =="paper"){
+                console.log("You did it, you won!")
+            }
+
+        }
+        console.log(PlayRound())
         
         //KEEP SCORE//
     </script>
