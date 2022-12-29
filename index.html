@@ -13,12 +13,11 @@
         function getUserChoice(){
             UserChoice = UserChoice.toLowerCase()
             if(UserChoice != "rock" && UserChoice != "paper" && UserChoice != "scissors"){
-                console.log("This is not a valid choice reload and try again")
+                console.log("This is not a valid choice, reload and try again")
             }else{
                 return UserChoice
             }
         }
-        console.log(getUserChoice())
         //GENERATE COMPUTER IMPUT//
         function getComputerChoice(){
             let ComputerChoice = Math.floor(Math.random()*3)
@@ -29,32 +28,30 @@
             }else if(ComputerChoice === 2){
                 ComputerChoice = "scissors"
             }
-            return(ComputerChoice)
+            return ComputerChoice
         }
-        console.log(getComputerChoice())
         //COMPARE INPUTS//
         function PlayRound(getUserChoice,getComputerChoice){
-            if(getUserChoice == "rock" && getComputerChoice =="paper"){
-                console.log("Oh no, you lost!")
+            let result = ""
+            if(getUserChoice() == getComputerChoice()){
+                result +="Wow it's a tie!"
+            }else if(getUserChoice() == "rock" && getComputerChoice() == "paper"){
+                result +="Sadly, you lost!"
+            }else if(getUserChoice() == "rock" && getComputerChoice() == "scissors"){
+                result +="Nicely done you won!"
+            }else if(getUserChoice() == "paper" && getComputerChoice() == "scissors"){
+                result +="Sadly, you lost!"
+            }else if(getUserChoice() == "paper" && getComputerChoice() == "rock"){
+                result +="Nicely done you won!"
+            }else if(getUserChoice() == "scissors" && getComputerChoice() == "rock"){
+                result +="Sadly, you lost!"
+            }else if(getUserChoice() == "scissors" && getComputerChoice() == "paper"){
+                result +="Nicely done you won!"
             }
-            else if(getUserChoice == "rock" && getComputerChoice =="scissors"){
-                console.log("You did it, you won!")
-            }
-            else if(getUserChoice == "paper" && getComputerChoice =="scissors"){
-                console.log("Oh no, you lost!")
-            }
-            else if(getUserChoice == "paper" && getComputerChoice =="rock"){
-                console.log("You did it, you won!")
-            }
-            else if(getUserChoice == "scissors" && getComputerChoice =="rock"){
-                console.log("Oh no, you lost!")
-            }
-            else if(getUserChoice == "scissors" && getComputerChoice =="paper"){
-                console.log("You did it, you won!")
-            }
-
+            return result
         }
-        console.log(PlayRound())
+        console.log(PlayRound(getUserChoice,getComputerChoice))
+
         
         //KEEP SCORE//
     </script>
