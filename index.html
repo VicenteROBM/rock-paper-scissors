@@ -9,8 +9,23 @@
 <body>
     <script>
         // GET INPUT FROM USER//
+        function getUserChoice(){}
         //GENERATE COMPUTER IMPUT//
+        function getComputerChoice(){
+            let ComputerChoice = Math.floor(Math.random()*3)
+            if(ComputerChoice === 0){
+                ComputerChoice = "rock"
+            }else if(ComputerChoice === 1){
+                ComputerChoice = "paper"
+            }else if(ComputerChoice === 2){
+                ComputerChoice = "scissors"
+            }
+            return(ComputerChoice)
+
+        }
+        console.log(getComputerChoice())
         //COMPARE INPUTS//
+        
         //KEEP SCORE//
     </script>
     
