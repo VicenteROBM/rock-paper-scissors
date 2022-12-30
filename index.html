@@ -9,13 +9,28 @@
 <body>
     <script>
         // I NEED THIS TO PROMPT THE USER IF IT IS ROCK PAPER OR SCISSOR (CASE INSENSITIVE) SAVE IT, ELSE ASK AGAIN UNTIL A GOOD ANSWER IS ACHIEVED//
-        let UserChoice = prompt("Rock, paper, scissor what do you chose?")
-        function getUserChoice(){
-        }
-        /rock/i
-        /paper/i
-        /scissors/i
         
+        function getUserChoice(){
+            
+    
+        }
+        function rightChoice(){
+            let UserChoice = prompt("Rock, paper, scissors what do you chose?")
+            if(UserChoice.toLowerCase() == "rock" || UserChoice.toLowerCase() == "paper"|| UserChoice.toLowerCase() == "scissors"){
+                UserChoice = UserChoice.toLowerCase()
+                return UserChoice
+            }else{
+                while(UserChoice.toLowerCase() != "rock" || UserChoice.toLowerCase() != "paper"|| UserChoice.toLowerCase() != "scissors"){
+                    UserChoice = prompt("Try again, rock , papaer or scissors and watch your grammar!") 
+                    if(UserChoice.toLowerCase() == "rock" || UserChoice.toLowerCase() == "paper"|| UserChoice.toLowerCase() == "scissors"){
+                    UserChoice = UserChoice.toLowerCase()
+                    return UserChoice
+                    }
+                }
+            }
+            
+        }
+        console.log(rightChoice())
         //GENERATE COMPUTER IMPUT//
         function getComputerChoice(){
             let ComputerChoice = Math.floor(Math.random()*3)
@@ -50,9 +65,9 @@
             }
             return result
         }
-        console.log(PlayRound(getUserChoice,getComputerChoice))
+        
         // PLAY 5 ROUNDS EACH TIME GETTING NEW ANSWERS FROM THE USER AND THEN DECLARE WIN LOSE OR TIE FROM THE USER PERSPECTIVE//
-        game(){
+        function game(){
             let computerScore = 0
             let userScore = 0
             let roundCounter = 0
@@ -61,10 +76,16 @@
                 getUserChoice()
                 PlayRound()
                 roundCounter += 1
-                if (roundCounter == 0){
-                    if(computerScore>userScore){}
-                    if(userScore>computerScore){}
-                    if(computerScore == userScore){}
+                if (roundCounter == 5){
+                    if(computerScore>userScore){
+                        return console.log("Oh no you lost")
+                    }
+                    if(userScore>computerScore){
+                        return console.log("Congratulations you won!")
+                    }
+                    if(computerScore == userScore){
+                        console.log("Wow it's a tie!")
+                    }
                 }
 
             }
