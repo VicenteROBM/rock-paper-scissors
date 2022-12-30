@@ -8,13 +8,7 @@
 </head>
 <body>
     <script>
-        // I NEED THIS TO PROMPT THE USER IF IT IS ROCK PAPER OR SCISSOR (CASE INSENSITIVE) SAVE IT, ELSE ASK AGAIN UNTIL A GOOD ANSWER IS ACHIEVED//
-        
         function getUserChoice(){
-            
-    
-        }
-        function rightChoice(){
             let UserChoice = prompt("Rock, paper, scissors what do you chose?")
             if(UserChoice.toLowerCase() == "rock" || UserChoice.toLowerCase() == "paper"|| UserChoice.toLowerCase() == "scissors"){
                 UserChoice = UserChoice.toLowerCase()
@@ -27,11 +21,9 @@
                     return UserChoice
                     }
                 }
-            }
-            
+            } 
         }
-        console.log(rightChoice())
-        //GENERATE COMPUTER IMPUT//
+    
         function getComputerChoice(){
             let ComputerChoice = Math.floor(Math.random()*3)
             if(ComputerChoice === 0){
@@ -43,55 +35,52 @@
             }
             return ComputerChoice
         }
-        //COMPARE INPUTS AND PREPARING SCORES FOR LATER//
-
-        function PlayRound(getUserChoice,getComputerChoice){
+    
+        function PlayRound(){
+            let human = getUserChoice()
+            let computer = getComputerChoice()
             let result = ""
-            if(getUserChoice() == getComputerChoice()){
+            if(human == computer){
                 result +="Wow it's a tie!"
-            }else if(getUserChoice() == "rock" && getComputerChoice() == "paper"){
+            }else if(human == "rock" && computer == "paper"){
                 result +="Sadly, you lost!"
-            }else if(getUserChoice() == "rock" && getComputerChoice() == "scissors"){
+            }else if(human == "rock" && computer == "scissors"){
                 result +="Nicely done you won!"
-            }else if(getUserChoice() == "paper" && getComputerChoice() == "scissors"){
+            }else if(human == "paper" && computer == "scissors"){
                 result +="Sadly, you lost!"
-            }else if(getUserChoice() == "paper" && getComputerChoice() == "rock"){
+            }else if(human == "paper" && computer == "rock"){
                 result +="Nicely done you won!"
-            }else if(getUserChoice() == "scissors" && getComputerChoice() == "rock"){
+            }else if(human == "scissors" && computer == "rock"){
                 result +="Sadly, you lost!"
-            }else if(getUserChoice() == "scissors" && getComputerChoice() == "paper"){
+            }else if(human == "scissors" && computer == "paper"){
                 result +="Nicely done you won!"
 
             }
             return result
         }
         
-        // PLAY 5 ROUNDS EACH TIME GETTING NEW ANSWERS FROM THE USER AND THEN DECLARE WIN LOSE OR TIE FROM THE USER PERSPECTIVE//
+    
+        
         function game(){
-            let computerScore = 0
             let userScore = 0
-            let roundCounter = 0
+            let computerScore = 0
             for(let i=0; i<5; i++){
-                getUserChoice()
-                getUserChoice()
-                PlayRound()
-                roundCounter += 1
-                if (roundCounter == 5){
-                    if(computerScore>userScore){
-                        return console.log("Oh no you lost")
-                    }
-                    if(userScore>computerScore){
-                        return console.log("Congratulations you won!")
-                    }
-                    if(computerScore == userScore){
-                        console.log("Wow it's a tie!")
-                    }
+                let round = PlayRound()
+                if(round == "Nicely done you won!"){
+                    userScore += 1
+                }else if(round == "Sadly, you lost!"){
+                    computerScore =+1
                 }
-
             }
-
+            if(userScore>computerScore){
+                return "Congratulations you won!"
+            }else if(computerScore>userScore){
+                return "Oh no you lost!"
+            }else{
+                return "It's a tie!"
+            }
         }
-
+        console.log(game())
     </script>
     
 </body>
