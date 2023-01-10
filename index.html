@@ -7,62 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="PlayRound(`rock`)">Rock</button>
-    <button onclick="PlayRound(`paper`)">Paper</button>
-    <button onclick="PlayRound(`scissors`)">Scissors</button>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="cissors">Scissors</button>
     <div>
-        <p id="result">0-0</p>
+        <p id="ComputerScore">0</p><p id="UserScore">0</p>
     </div>
-    <script>
-        /*
-        
-        Add a div for displaying results and change all of your console.logs 
-        into DOM methods.
-        Display the running score, and announce 
-        a winner of the game once one player reaches 5 points.
-        You will likely have to refactor (rework/rewrite) your original 
-        code to make it work for this. That’s OK! Reworking old code 
-        is an important part of a programmer’s life.
-
-        */
-       
-
-        function getComputerChoice(){
-            let ComputerChoice = Math.floor(Math.random()*3)
-            if(ComputerChoice === 0){
-                ComputerChoice = "rock"
-            }else if(ComputerChoice === 1){
-                ComputerChoice = "paper"
-            }else if(ComputerChoice === 2){
-                ComputerChoice = "scissors"
-            }
-            return ComputerChoice
-        }
-    
-        function PlayRound(input){
-            let human = input
-            let computer = getComputerChoice()
-            let result = ""
-            if(human == computer){
-                result +="Wow it's a tie!"
-            }else if(human == "rock" && computer == "paper"){
-                result +="Sadly, you lost!"
-            }else if(human == "rock" && computer == "scissors"){
-                result +="Nicely done you won!"
-            }else if(human == "paper" && computer == "scissors"){
-                result +="Sadly, you lost!"
-            }else if(human == "paper" && computer == "rock"){
-                result +="Nicely done you won!"
-            }else if(human == "scissors" && computer == "rock"){
-                result +="Sadly, you lost!"
-            }else if(human == "scissors" && computer == "paper"){
-                result +="Nicely done you won!"
-
-            }
-            return console.log(result)
-        }
-
-    </script>
+    <script src="../rock-paper-scissors/script.js"></script>
     
 </body>
 </html>
