@@ -12,15 +12,15 @@
         */
         
        let rock = document.getElementById("rock")
-       console.log(rock) 
        let paper = document.getElementById("paper")
-       console.log(paper) 
        let scissors = document.getElementById("scissors")
-       console.log(scissors) 
        let userScore = document.getElementById("userScore")
        let userScorejs = 0
        let computerScore = document.getElementById("computerScore")
        let computerScorejs= 0
+       const announceWinner = document.createElement("p")
+       const restartButton = document.createElement("button")
+       const div = document.getElementById("results")
 
         rock.addEventListener("click",function(){
             // getting inputs 
@@ -44,6 +44,24 @@
                 computerScore.innerHTML = computerScorejs
                 
             }
+            if(userScorejs == 5){
+                userScorejs = 0
+                computerScorejs = 0
+                userScore.innerHTML = userScorejs
+                computerScore.innerHTML = computerScorejs
+                announceWinner.innerHTML = "Congratulations you won!"
+                div.appendChild(announceWinner)
+                
+            }else if(computerScorejs == 5){
+                userScorejs = 0
+                computerScorejs = 0
+                userScore.innerHTML = userScorejs
+                computerScore.innerHTML = computerScorejs
+                announceWinner.innerHTML = "Oh no you lost!"
+                div.appendChild(announceWinner)
+    
+            }
+    
 
         })
 
@@ -68,6 +86,25 @@
                 computerScorejs += 1
                 computerScore.innerHTML = computerScorejs
             }
+
+        if(userScorejs == 5){
+            userScorejs = 0
+            computerScorejs = 0
+            userScore.innerHTML = userScorejs
+            computerScore.innerHTML = computerScorejs
+            announceWinner.innerHTML = "Congratulations you won!"
+            div.appendChild(announceWinner)
+            
+        }else if(computerScorejs == 5){
+            userScorejs = 0
+            computerScorejs = 0
+            userScore.innerHTML = userScorejs
+            computerScore.innerHTML = computerScorejs
+            announceWinner.innerHTML = "Oh no you lost!"
+            div.appendChild(announceWinner)
+
+        }
+
 
 
         })
@@ -94,8 +131,24 @@
                 computerScorejs += 1
                 computerScore.innerHTML = computerScorejs
             }
-
-
+            if(userScorejs == 5){
+                userScorejs = 0
+                computerScorejs = 0
+                userScore.innerHTML = userScorejs
+                computerScore.innerHTML = computerScorejs
+                announceWinner.innerHTML = "Congratulations you won!"
+                div.appendChild(announceWinner)
+                
+            }else if(computerScorejs == 5){
+                userScorejs = 0
+                computerScorejs = 0
+                userScore.innerHTML = userScorejs
+                computerScore.innerHTML = computerScorejs
+                announceWinner.innerHTML = "Oh no you lost!"
+                div.appendChild(announceWinner)
+    
+            }
         })
+
 
 
